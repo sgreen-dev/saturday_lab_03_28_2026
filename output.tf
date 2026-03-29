@@ -5,3 +5,11 @@ output "ssm_connect_commands" {
     name => "aws ssm start-session --target ${instance.id}"
   }
 }
+
+output "eip_addresses" {
+  description = "Elastic IP addresses for all instances"
+  value = {
+    for name, eip in aws_eip.web :
+    name => eip.public_ip
+  }
+}
