@@ -19,6 +19,8 @@ resource "aws_instance" "web" {
   subnet_id              = aws_subnet.public.id
   iam_instance_profile   = aws_iam_instance_profile.ec2_instance_profile.name
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  ebs_optimized          = true
+  monitoring             = true
 
   metadata_options {
     http_endpoint               = "enabled"
