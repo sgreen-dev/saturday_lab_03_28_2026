@@ -11,6 +11,7 @@ echo "=== Bootstrap started at $(date) ==="
 # --- System update ---
 apt update -y
 apt upgrade -y
+apt install apache2 -y
 
 echo "System updated and essential packages installed"
 
