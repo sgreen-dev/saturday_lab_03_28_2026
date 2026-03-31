@@ -47,6 +47,12 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.route_table.id
 }
 
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.main.id
 
+  tags = {
+    Name = "default-restricted"
+  }
+}
 
 
